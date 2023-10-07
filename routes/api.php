@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::apiResource('/cardapio', 'App\Http\Controllers\CardapioController');
-Route::apiResource('/usuario', 'App\Http\Controllers\UserController');
+Route::post('/login', 'App\Http\Controllers\AuthController@login');
+Route::post('/register', [AuthController::class, 'register']);
+
